@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NANCY DREW TITLE HEADER</title>
+    <title>Nancy Drew Website Title</title>
     <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,7 +21,24 @@
     </nav>
     <main>
         <h2>All Books</h2>
-        
+        <thead>
+            <tr>
+                <th>Book No.</th>
+                <th>Title</th>
+                <th>Publisher</th>
+                <th>Book Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in book_info %}
+            <tr>
+                <td>{{ info[0] }}</td>
+                <td>{{ info[1] }}</td>
+                <td>{{ info[2] }}</td>
+                <td>{{ info[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
 
     </main>
     <footer>
