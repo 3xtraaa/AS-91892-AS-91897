@@ -25,7 +25,7 @@ def render_home():
 @app.route('/all_books')
 def render_all_books():
     # Query to display all info for all books
-    query = "SELECT book_num, title, publisher, in_library"
+    query = "SELECT * FROM all_nancy_drew"
     con = create_connection(DATABASE)
     cur = con.cursor()
 
