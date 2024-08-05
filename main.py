@@ -22,5 +22,19 @@ def create_connection(db_file):
 def render_home():
     return render_template("index.html")
 
+@app.route('/all_books')
+def render_all_books():
+    # Query to display all info for all books
+    query = "SELECT book_num, title, publisher, in_library"
+    con = create_connection(DATABASE)
+    cur = con.cursor()
+
+    # Query the DATABASE (nancy_drew_ctlg.db)
+    cur.execute(query)
+    all_book_info = cur.fetchall()
+    con.close()
+    print(all_book_info)
+    return render_template('all_books.html', book_info = all_book_info)
+
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=81)
