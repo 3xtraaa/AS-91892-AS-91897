@@ -21,25 +21,26 @@
     </nav>
     <main>
         <h2>All Books</h2>
-        <thead>
-            <tr>
-                <th>Book No.</th>
-                <th>Title</th>
-                <th>Publisher</th>
-                <th>Book Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for info in book_info %}
-            <tr>
-                <td>{{ info[0] }}</td>
-                <td>{{ info[1] }}</td>
-                <td>{{ info[2] }}</td>
-                <td>{{ info[3] }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-
+        <table>
+            <thead>
+                <tr>
+                    <th>Book No.</th>
+                    <th>Title</th>
+                    <th>Publisher</th>
+                    <th>Book Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for info in book_info %}
+                <tr>
+                    <td>{{ info[0] }}</td>
+                    <td>{{ info[1] }}</td>
+                    <td>{{ info[2] }}</td>
+                    <td>{{ info[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </main>
     <footer>
         <p>Lorem ipsum footer footer</p>
