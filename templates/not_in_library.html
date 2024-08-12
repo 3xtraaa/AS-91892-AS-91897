@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>Nancy Drew Website Title</title>
+      <link href="static/css/style.css" rel="stylesheet" type="text/css"/>
+    </head>
+
+    <body>
+          <header>
+            <h1>NANCY DREW TITLE HEADER</h1>
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="all_books">All Books</a>
+                </li>
+                <li>
+                  <a href="/not_in_library">Not In Library</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <h2>{{ title }}</h2>
+            <p>{{ sort }}</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th><a href="/sort/{{title}}?sort=tag&order={{ order }}">Tag</a></th>
+                        <th><a href="/sort/{{title}}?sort=description&order={{ order }} ">Description</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tag in tags %}
+                    <tr>
+                        <td>{{ tag[0] }}</td>
+                        <td>{{ tag[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </main>
+        <footer>
+            <p>footer text footer textr - Esha Anwar</p>
+        </footer>
+    </body>
+    </html>

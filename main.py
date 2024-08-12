@@ -36,10 +36,12 @@ def render_all_books():
     print(all_book_info)
     return render_template('all_books.html', book_info = all_book_info)
 
-@app.route('/in_library')
+@app.route('/not_in_library')
 def render_in_library():
     # Query to display all books in library
-    query = "SELECT "
+    query = """SELECT book_num, title, publisher
+FROM all_nancy_drew
+WHERE in_library is 0"""
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=81)
