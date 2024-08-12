@@ -36,5 +36,10 @@ def render_all_books():
     print(all_book_info)
     return render_template('all_books.html', book_info = all_book_info)
 
+@app.route('/in_library')
+def render_in_library():
+    # Query to display all books in library
+    query = "SELECT "
+
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=81)
