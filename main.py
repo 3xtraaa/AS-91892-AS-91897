@@ -24,6 +24,11 @@ def render_home():
 
 @app.route('/all_books')
 def render_all_books():
+    """
+    Queries the database for information about all books, store the
+    information returned in a tuple. Returns the tuple to the Jinja
+    template.
+    """
     # Query to display all info for all books
     query = "SELECT * FROM all_nancy_drew"
     con = create_connection(DATABASE)
@@ -38,10 +43,25 @@ def render_all_books():
 
 @app.route('/not_in_library')
 def render_in_library():
+    """
+    Queries the database for information about books which are not in the
+    library, stores theinformation returned in a tuple. Returns the tuple
+    to the Jinja template.
+    """
     # Query to display all books in library
     query = """SELECT book_num, title, publisher
 FROM all_nancy_drew
 WHERE in_library is 0"""
+    con = create_connection(DATABASE)
+    cur = con.cursor()
+
+    # Query the DATABASE
+    cur.execute(query)
+    not_in_library = cur.fetchall()
+    con.close()
+    print(not_in_library)
+    return render_template('not_in_library.html', book_info = not_in_library)
+
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=81)

@@ -39,7 +39,13 @@
                     <td>{{ info[0] }}</td>
                     <td>{{ info[1] }}</td>
                     <td>{{ info[2] }}</td>
-                    <td>{{ info[3] }}</td>
+                    <td>
+                        {% if info[3] == 1 %}
+                            Available
+                        {% else %}
+                            Not Available
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -26,20 +26,21 @@
             </ul>
         </nav>
         <main>
-            <h2>{{ title }}</h2>
-            <p>{{ sort }}</p>
+            <h2>Books Not in Collection</h2>
             <table>
                 <thead>
                     <tr>
-                        <th><a href="/sort/{{title}}?sort=tag&order={{ order }}">Tag</a></th>
-                        <th><a href="/sort/{{title}}?sort=description&order={{ order }} ">Description</a></th>
+                        <th>Book No.</th>
+                        <th>Title</th>
+                        <th>Publisher</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for tag in tags %}
+                    {% for info in book_info %}
                     <tr>
-                        <td>{{ tag[0] }}</td>
-                        <td>{{ tag[1] }}</td>
+                        <td>{{ info[0] }}</td>
+                        <td>{{ info[1] }}</td>
+                        <td>{{ info[2] }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
