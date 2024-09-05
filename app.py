@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import sqlite3
 from sqlite3 import Error
 
@@ -40,6 +40,39 @@ def render_all_books():
     con.close()
     print(all_book_info)
     return render_template('all_books.html', book_info = all_book_info)
+
+@app.route('/sort/books')
+def render_sort_books():
+    sort = request.args.get('sort')
+    order = request.args.get('order', 'asc')
+
+    # Toggles ascending and descending order
+    if order == 'asc':
+        new_order = 'desc'
+    else:
+        order = 'asc'
+
+    column_map = {
+        'book_no': 'book_num',
+        'title': 'title',
+        'publisher': 'publisher',
+    }
+
+    # Uses user input (converts category to appropriate column titles
+    # relevant to SQL database using column map) to sort table
+    # Defaults to sorting by book_num
+    query = """SELECT *
+    FROM all_nancy_drew
+    ORDER BY {} {}""".format(column_map.get(sort, 'book_num'), order)
+
+    con = create_connection(DATABASE)
+    cur = con.cursor()
+    cur.execute(query)
+    # This holds all the sorted books after it is fetched by the query
+    sorted_books = cur.fetchall()
+    con.close()
+
+    return render_template('all_books.html', book_info = sorted_books, order = new_order)
 
 @app.route('/not_in_library')
 def render_in_library():
