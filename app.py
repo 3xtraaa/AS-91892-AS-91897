@@ -50,7 +50,7 @@ def render_sort_books():
     if order == 'asc':
         new_order = 'desc'
     else:
-        order = 'asc'
+        new_order = 'asc'
 
     column_map = {
         'book_no': 'book_num',
