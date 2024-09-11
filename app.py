@@ -58,7 +58,7 @@ def render_sort_books():
         'publisher': 'publisher',
     }
 
-    # Uses user input (converts categoy to appropriate column titles
+    # Uses user input (converts category to appropriate column titles
     # relevant to SQL database using column map) to sort table
     # Defaults to sorting by book_num
     query = """SELECT *
