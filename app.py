@@ -95,6 +95,23 @@ WHERE in_library is 0"""
     print(not_in_library)
     return render_template('not_in_library.html', book_info = not_in_library)
 
+@app.route('/search', methods=['GET', 'POST'])
+def render_search():
+    """
+    Find all records which contain the search item
+    :POST contains the search value
+    :returns a rendered page
+    """
+    search = request.form['search']
+    search = "%" + search + "%"
+    query = "SELECT * FROM all_nancy_drew WHERE book_num LIKE {} OR title LIKE {} OR publisher LIKE {}".format(search, search, search)
+    con = create_connection(DATABASE)
+    cur = con.cursor()
+    cur.execute(query)
+    search_results = cur.fetchall()
+    con.close()
+
+    return render_template("all_books.html", book_info=search_results)
 
 if __name__ == '__main__':
   app.run()
