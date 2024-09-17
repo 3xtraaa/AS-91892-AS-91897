@@ -102,12 +102,12 @@ def render_search():
     :POST contains the search value
     :returns a rendered page
     """
-    search = request.form['search']
-    search = "%" + search + "%"
-    query = "SELECT * FROM all_nancy_drew WHERE book_num LIKE {} OR title LIKE {} OR publisher LIKE {}".format(search, search, search)
+    search = request.form.get('search', '')
+    query_user_search_input = "%{}%".format(search)
+    query = "SELECT * FROM all_nancy_drew WHERE book_num LIKE ? OR title LIKE ? OR publisher LIKE ?"
     con = create_connection(DATABASE)
     cur = con.cursor()
-    cur.execute(query)
+    cur.execute(query, (query_user_search_input, query_user_search_input, query_user_search_input))
     search_results = cur.fetchall()
     con.close()
 
