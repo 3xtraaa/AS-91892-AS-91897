@@ -102,7 +102,9 @@ def render_search():
     :POST contains the search value
     :returns a rendered page
     """
+    print("Search route called")  # Check if this prints
     search = request.form.get('search', '')
+    print(f"Search term: {search}") # Debug 
     query_user_search_input = "%{}%".format(search)
     query = "SELECT * FROM all_nancy_drew WHERE book_num LIKE ? OR title LIKE ? OR publisher LIKE ?"
     con = create_connection(DATABASE)
@@ -110,8 +112,8 @@ def render_search():
     cur.execute(query, (query_user_search_input, query_user_search_input, query_user_search_input))
     search_results = cur.fetchall()
     con.close()
-
-    return render_template("all_books.html", book_info=search_results)
+    print(f"Search results: {search_results}")  # Debug print... not working
+    return render_template("search_results.html", book_info=search_results)
 
 if __name__ == '__main__':
-  app.run()
+  app.run(debug=True)
