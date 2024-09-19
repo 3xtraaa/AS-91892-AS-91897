@@ -32,12 +32,12 @@ def render_all_books():
     # Query to display all info for all books
     query = "SELECT * FROM all_nancy_drew"
     con = create_connection(DATABASE)
-    cur = con.cursor()
+    cur = con.cursor() # type: ignore
 
     # Query the DATABASE (nancy_drew_ctlg.db)
     cur.execute(query)
     all_book_info = cur.fetchall()
-    con.close()
+    con.close() # type: ignore
     print(all_book_info)
     return render_template('all_books.html', book_info = all_book_info)
 
@@ -63,14 +63,14 @@ def render_sort_books():
     # Defaults to sorting by book_num
     query = """SELECT *
     FROM all_nancy_drew
-    ORDER BY {} {}""".format(column_map.get(sort, 'book_num'), order)
+    ORDER BY {} {}""".format(column_map.get(sort, 'book_num'), order) # type: ignore
 
     con = create_connection(DATABASE)
-    cur = con.cursor()
+    cur = con.cursor() # type: ignore
     cur.execute(query)
     # This holds all the sorted books after it is fetched by the query
     sorted_books = cur.fetchall()
-    con.close()
+    con.close() # type: ignore
 
     return render_template('all_books.html', book_info = sorted_books, order = new_order)
 
@@ -86,12 +86,12 @@ def render_in_library():
 FROM all_nancy_drew
 WHERE in_library is 0"""
     con = create_connection(DATABASE)
-    cur = con.cursor()
+    cur = con.cursor() # type: ignore
 
     # Query the DATABASE
     cur.execute(query)
     not_in_library = cur.fetchall()
-    con.close()
+    con.close() # type: ignore
     print(not_in_library)
     return render_template('not_in_library.html', book_info = not_in_library)
 
@@ -108,10 +108,10 @@ def render_search():
     query_user_search_input = "%{}%".format(search)
     query = "SELECT * FROM all_nancy_drew WHERE book_num LIKE ? OR title LIKE ? OR publisher LIKE ?"
     con = create_connection(DATABASE)
-    cur = con.cursor()
+    cur = con.cursor() # type: ignore
     cur.execute(query, (query_user_search_input, query_user_search_input, query_user_search_input))
     search_results = cur.fetchall()
-    con.close()
+    con.close() # type: ignore
     print(f"Search results: {search_results}")  # Debug print... not working
     return render_template("search_results.html", book_info=search_results)
 
