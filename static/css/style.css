@@ -141,12 +141,13 @@ th {
 }
 
 th a {
-    color: #ffffff;
+    color: #C3A33E;
     text-decoration: none;
 }
 
 th a:hover {
-    color: #f0e68c;
+    color: #F9D341;
+    background-color: #537322;
 }
 
 td {
@@ -154,5 +155,5 @@ td {
 }
 
 td:hover {
-    color: #C3A33E
+    color: #121a0d
 }
