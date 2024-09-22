@@ -56,6 +56,7 @@ def render_sort_books():
         'book_no': 'book_num',
         'title': 'title',
         'publisher': 'publisher',
+        'status': 'in_library'
     }
 
     # Uses user input (converts category to appropriate column titles
