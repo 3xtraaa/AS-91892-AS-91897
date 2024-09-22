@@ -1,60 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Nancy Drew Collection</title>
-    <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-    <header>
-        <h1>NANCY DREW COLLECTION</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="all_books">All Books</a></li>
-            <li><a href="/not_in_library">Not In Library</a></li>
-        </ul>
-        <form method="POST" action="/search">
-            <input type="text" name="search" id="search" placeholder="Search for a book... ">
-            <input type="submit" value="Search">
-        </form> 
-    </nav>
-    <main>
-        <!-- No results -->
-        {% if book_info == [] %}
-            <p>NO RESULTS</p>
-        {% else %}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Book No.</th>
-                        <th>Title</th>
-                        <th>Publisher</th>
-                        <th>Book Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for info in book_info %}
-                    <tr>
-                        <td>{{ info[0] }}</td>
-                        <td>{{ info[1] }}</td>
-                        <td>{{ info[2] }}</td>
-                        <td>
-                            {% if info[3] == 1 %}
-                                Available
-                            {% else %}
-                                Not Available
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% endif %}
-    </main>
-    <footer>
-        <p>Lorem ipsum footer footer</p>
-    </footer>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Search results - Nancy Drew Collection{% endblock %}
+
+{% block content %}
+<!-- No results -->
+{% if book_info == [] %}
+    <p>NO RESULTS</p>
+{% else %}
+    <table>
+        <thead>
+            <tr>
+                <th>Book No.</th>
+                <th>Title</th>
+                <th>Publisher</th>
+                <th>Book Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in book_info %}
+            <tr>
+                <td>{{ info[0] }}</td>
+                <td>{{ info[1] }}</td>
+                <td>{{ info[2] }}</td>
+                <td>
+                    {% if info[3] == 1 %}
+                        Available
+                    {% else %}
+                        Not Available
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+{% endblock %}

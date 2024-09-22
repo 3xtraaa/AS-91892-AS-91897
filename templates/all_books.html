@@ -3,31 +3,31 @@
 {% block title %}All Books - Nancy Drew Collection{% endblock %}
 
 {% block content %}
-        <h2>All Books</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th><a href="/sort/books?sort=book_no&order={{ order }}">Book No.</a></th>
-                    <th><a href="/sort/books?sort=title&order={{ order }}">Title</a></th>
-                    <th><a href="/sort/books?sort=publisher&order={{ order }}">Publisher</a></th>
-                    <th><a href="/sort/books?sort=status&order={{ order }}">Book Status</a></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for info in book_info %}
-                <tr>
-                    <td>{{ info[0] }}</td>
-                    <td>{{ info[1] }}</td>
-                    <td>{{ info[2] }}</td>
-                    <td>
-                        {% if info[3] == 1 %}
-                            Available
-                        {% else %}
-                            Not Available
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+<h2>All Books</h2>
+<table>
+    <thead>
+        <tr>
+            <th><a href="/sort/books?sort=book_no&order={{ order }}">Book No.</a></th>
+            <th><a href="/sort/books?sort=title&order={{ order }}">Title</a></th>
+            <th><a href="/sort/books?sort=publisher&order={{ order }}">Publisher</a></th>
+            <th><a href="/sort/books?sort=status&order={{ order }}">Book Status</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for info in book_info %}
+        <tr>
+            <td>{{ info[0] }}</td>
+            <td>{{ info[1] }}</td>
+            <td>{{ info[2] }}</td>
+            <td>
+                {% if info[3] == 1 %}
+                    Available
+                {% else %}
+                    Not Available
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

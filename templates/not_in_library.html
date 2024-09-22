@@ -1,57 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
-      <title>Nancy Drew Collection</title>
-      <link href="static/css/style.css" rel="stylesheet" type="text/css"/>
-    </head>
+{% block title %}Not In Library - Nancy Drew Collection{% endblock %}
 
-    <body>
-          <header>
-            <h1>NANCY DREW COLLECTION</h1>
-        </header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="all_books">All Books</a>
-                </li>
-                <li>
-                  <a href="/not_in_library">Not In Library</a>
-                </li>
-            </ul>
-            <form method="POST" action="/search">
-                <input type="text" name="search" id="search" placeholder="Search for a book... ">
-                <input type="submit" value="Search">
-            </form>
-        </nav>
-        <main>
-            <h2>Books Not in Collection</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Book No.</th>
-                        <th>Title</th>
-                        <th>Publisher</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for info in book_info %}
-                    <tr>
-                        <td>{{ info[0] }}</td>
-                        <td>{{ info[1] }}</td>
-                        <td>{{ info[2] }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </main>
-        <footer>
-            <p>footer text footer textr - Esha Anwar</p>
-        </footer>
-    </body>
-    </html>
+{% block content %}
+<h2>Books Not in Library</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Book No.</th>
+            <th>Title</th>
+            <th>Publisher</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for info in book_info %}
+        <tr>
+            <td>{{ info[0] }}</td>
+            <td>{{ info[1] }}</td>
+            <td>{{ info[2] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
