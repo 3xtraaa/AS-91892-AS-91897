@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- The title block allows the other tempplates to input their own title -->
-    <title>{% block title %}Nancy Drew Collection{% endblock %}</title>
-    <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Nancy Drew Collection{% endblock %}</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Grenze+Gotisch:wght@100..900&family=Mate:ital@0;1&display=swap" rel="stylesheet">
+    
+        <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
+    </head>
 <body>
-    <header>
-        <h1>Nancy Drew Collection</h1>
-    </header>
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="all_books">All Books</a>
-            </li>
-            <li>
-                <a href="/not_in_library">Not In Library</a>
-            </li>
-        </ul>
-        <form method="POST" action="/search">
-            <input type="text" name="search" id="search" placeholder="Search for a book... ">
-            <input type="submit" value="Search">
-        </form> 
-    </nav>
-    <!-- Allows other templates to use their own content -->
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+    <div class="container">
+        <!-- Header section with title and search bar -->
+        <header>
+            <h1>Nancy Drew Collection</h1>
+            <form class="search-form" method="POST" action="/search">
+                <input type="text" name="search" id="search" placeholder="Search for a book...">
+                <input type="submit" value="Search">
+            </form>
+        </header>
+
+        <!-- Main content area with sidebar navigation -->
+        <div class="main-container">
+            <!-- Sidebar with vertical navigation -->
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/all_books">All Books</a></li>
+                    <li><a href="/not_in_library">Not In Library</a></li>
+                </ul>
+            </nav>
+
+            <!-- Main content area -->
+            <div class="main-content">
+                <main>
+                    {% block content %}
+                    <!-- Default content can go here if needed -->
+                    {% endblock %}
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer section -->
     <footer>
         <p>Esha Anwar 2024</p>
     </footer>
+
+    <script src="/static/js/script.js"></script>
 </body>
 </html>

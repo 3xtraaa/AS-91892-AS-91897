@@ -1,116 +1,158 @@
-html, body {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+html, body { 
+    margin: 0;
+    padding: 0;
 }
 
 html {
-    background-color: #f5f5f5; /* Light gray for a neutral background */
+    background-color: #233118;
 }
 
 body {
-    background-color: #fff8e1; /* Soft cream background for warmth */
-    color: #5b3a29; /* Dark brown for readable text */
-    font-family: 'Georgia', 'Times New Roman', serif; /* Serif fonts for book-like feel */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    display: grid;
-    grid-template-columns: 1fr; /* Single column layout */
-    grid-template-rows: auto 1fr auto; /* Header, main content, and footer */
-    gap: 20px; /* Space between sections */
+    background-color: #3F5727;
+    color: #F9D341;
+    font-family: "Caudex", serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex; /* Flex layout for body */
+    flex-direction: column; /* Stack header and main content vertically */
 }
 
 header {
-    background-color: #4a1c1c; /* Deep red for header */
+    background-color: #233118;
+    font-family: "Grenze Gotisch", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
     padding: 20px;
-    text-align: center; /* Center-align header content */
-    color: #f0e68c; /* Soft gold for text */
+    display: flex; /* Flex layout for header */
+    justify-content: space-between; /* Space between title and search bar */
+    align-items: center; /* Center vertically */
+    color: #C3A33E;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2em; /* Large title */
+    font-size: 3em;
 }
 
-nav {
-    background-color: #7e3a3a; /* Slightly darker red for navigation */
-    padding: 10px;
-    text-align: center; /* Center-align navigation items */
+.search-form {
+    display: flex; /* Flex layout for search bar */
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center; /* Center navigation links horizontally */
+form input[type="text"] {
+    padding: 8px;
+    border: 1px solid #d9b89b;
+    border-radius: 4px;
+    margin-right: 10px; /* Space between input and button */
 }
 
-nav ul li {
-    margin: 0 15px; /* Space between links */
+form input[type="submit"] { 
+    font-family: "Caudex", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #C3A33E;
+    color: #fff;
+    border: none;
+    padding: 8px 16px; /* Add padding to the button */
+    cursor: pointer;
 }
 
-nav a {
-    color: #f0e68c; /* Gold for link text */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold;
-    font-size: 1em; /* Adjust font size for readability */
+form input[type="submit"]:hover {
+    background-color: #537322;
 }
 
-nav a:hover {
-    color: #ffffff; /* White on hover for better visibility */
+.main-container {
+    display: flex; /* Flex layout for main content and sidebar */
+    flex: 1; /* Allow main container to grow */
 }
 
-main {
+.sidebar {
+    width: 200px; /* Fixed width for the sidebar */
+    background-color: #537322;
     padding: 20px;
 }
 
-main h2 {
-    text-align: center; /* Center-align main heading */
-    font-size: 1.5em; /* Slightly larger font size */
-    color: #7e3a3a; /* Darker red for subheadings */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    font-family: "Mate", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    color: #f0e68c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    color: #C3A33E;
+}
+
+.main-content {
+    flex: 1; /* Main content takes remaining space */
+    padding: 20px;
+}
+
+h2{
+    background-color: #537322;
+    color: #F9D341;
+    font-family: "Mate", serif;
+    font-weight: 400;
+    font-style: italic;
 }
 
 footer {
-    background-color: #4a1c1c; /* Same as header for consistency */
+    background-color: #233118;
     padding: 10px;
-    text-align: center; /* Center-align footer text */
-    color: #f0e68c; /* Gold for footer text */
+    text-align: center;
+    color: #f0e68c;
 }
 
 footer p {
     margin: 0;
-    font-size: 0.9em; /* Slightly smaller font size for footer */
+    font-size: 0.9em;
 }
 
-form {
-    border: 1px solid #d9b89b; /* Soft brown border */
-    padding: 5px;
-    margin: 5px;
-}
-
+/* Additional styling for tables if needed */
 table {
-    border: 1px solid #7e3a3a; /* Dark red for table borders */
+    background-color: #EADEB6;
+    border: 1px solid #233118;
     width: 100%;
     border-collapse: collapse;
 }
 
 th, td {
-    border: 1px solid #7e3a3a; /* Dark red for table borders */
+    border: 1px solid #233118;
     padding: 5px;
-    text-align: center; /* Center-align text horizontally */
-    vertical-align: middle; /* Center-align text vertically */
+    text-align: center;
+    vertical-align: middle;
 }
 
 th {
-    background-color: #7e3a3a; /* Dark red for header background */
-    color: #f0e68c; /* Change to gold on hover */
+    background-color: #233118;
+    color: #f0e68c;
 }
 
 th a {
-    color: #ffffff; /* White for header text */
-    text-decoration: none; /* Remove underline */
+    color: #ffffff;
+    text-decoration: none;
 }
 
 th a:hover {
-    color: #f0e68c; /* Change to gold on hover */
+    color: #f0e68c;
+}
+
+td {
+    color: #3F5727
+}
+
+td:hover {
+    color: #C3A33E
 }
