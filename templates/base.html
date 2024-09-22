@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nancy Drew Collection</title>
+    <!-- The title block allows the other tempplates to input their own title -->
+    <title>{% block title %}Nancy Drew Collection{% endblock %}</title>
     <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <header>
-        <h1>NANCY DREW COLLECTION</h1>
+        <h1>Nancy Drew Collection</h1>
     </header>
     <nav>
         <ul>
@@ -26,9 +27,12 @@
             <input type="submit" value="Search">
         </form> 
     </nav>
+    <!-- Allows other templates to use their own content -->
     <main>
         {% block content %}{% endblock %}
     </main>
     <footer>
         <p>Esha Anwar 2024</p>
     </footer>
+</body>
+</html>
