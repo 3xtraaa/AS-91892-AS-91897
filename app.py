@@ -107,10 +107,10 @@ def render_search():
     search = request.form.get('search', '')
     print(f"Search term: {search}") # Debug 
     query_user_search_input = "%{}%".format(search)
-    query = "SELECT * FROM all_nancy_drew WHERE book_num LIKE ? OR title LIKE ? OR publisher LIKE ?"
+    query = "SELECT * FROM all_nancy_drew WHERE book_num LIKE ? OR title LIKE ?"
     con = create_connection(DATABASE)
     cur = con.cursor() # type: ignore
-    cur.execute(query, (query_user_search_input, query_user_search_input, query_user_search_input))
+    cur.execute(query, (query_user_search_input, query_user_search_input))
     search_results = cur.fetchall()
     con.close() # type: ignore
     print(f"Search results: {search_results}")  # Debug print... not working
