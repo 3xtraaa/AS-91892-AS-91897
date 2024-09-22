@@ -1,41 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Nancy Drew Collection</title>
-  <link href="static/css/style.css" rel="stylesheet" type="text/css"/>
-</head>
+{% block title %}Home - Nancy Drew Collection{% endblock %}
 
-<body>
-      <header>
-        <h1>NANCY DREW COLLECTION</h1>
-    </header>
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="all_books">All Books</a>
-            </li>
-            <li>
-                <a href="/not_in_library">Not In Library</a>
-            </li>
-        </ul>
-        <form method="POST" action="/search">
-            <input type="text" name="search" id="search" placeholder="Search for a book... ">
-            <input type="submit" value="Search">
-        </form> 
-    </nav>
-    <main>
-        <h2>Welcome</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula eu augue porttitor auctor.</p>
-    </main>
-    <footer>
-        <p>footer text footer textr - Esha Anwar</p>
-    </footer>
-</body>
-
-</html>
+{% block content %}
+<h2>Welcome to Immi's Nancy Drew Collection!</h2>
+<p>Here are some of the things you can do:</p>
+<ul>
+    <li>Search through the entire Nancy Drew Mystery Stories series to find a specific book by title or number.</li>
+    <li>Sort the All Books page by clicking on the column titles. This will sort all the books by toggling between ascending and descending order for each column title..</li>
+    <li>Look through the Not In Library page to see which books are still needed to be bought to complete the Collection!</li>
+</ul>
+<p>Happy Detecting!</p>
+{% endblock %}
