@@ -1,32 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Nancy Drew Collection</title>
-    <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-    <header>
-        <h1>NANCY DREW COLLECTION</h1>
-    </header>
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="all_books">All Books</a>
-            </li>
-            <li>
-                <a href="/not_in_library">Not In Library</a>
-            </li>
-        </ul>
-        <form method="POST" action="/search">
-            <input type="text" name="search" id="search" placeholder="Search for a book... ">
-            <input type="submit" value="Search">
-        </form> 
-    </nav>
-    <main>
+{% extends "base.html" %}
+
+{% block title %}All Books - Nancy Drew Collection{% endblock %}
+
+{% block content %}
         <h2>All Books</h2>
         <table>
             <thead>
@@ -54,9 +30,4 @@
                 {% endfor %}
             </tbody>
         </table>
-    </main>
-    <footer>
-        <p>Lorem ipsum footer footer</p>
-    </footer>
-</body>
-</html>
+{% endblock %}
